@@ -95,12 +95,6 @@ section{
    width: 100%;
 }
 
-.inline-btn,
-.inline-option-btn,
-.inline-delete-btn{
-   display: inline-block;
-}
-
 .btn,
 .inline-btn{
    background-color: var(--main-color);
@@ -111,10 +105,6 @@ section{
    background-color:var(--orange);
 }
 
-.delete-btn,
-.inline-delete-btn{
-   background-color: var(--red);
-}
 
 .inline-btn:hover,
 .inline-option-btn:hover,
@@ -132,12 +122,15 @@ section{
 }
 
 .header{
-   position: sticky;
+   position: relative;
    top:0; left:0; right: 0;
    background-color: var(--white);
    z-index: 1000;
    border-bottom: var(--border);
    padding: 0;
+   border-bottom-left-radius: 90px;
+   border-bottom-right-radius: 90px;
+   box-shadow: 0 4px 6px rgba(2, 30, 122, 0.692); /* Optional: adds soft shadow */ 
 }
 
 .header .flex{
@@ -145,27 +138,33 @@ section{
    align-items: center;
    justify-content: space-between;
    position: relative;
-   padding: .1rem .01rem;
+   padding: 0rem;
 }
 
-.header .flex .logo{
-   font-size: 2.5rem;
-   color: var(--black);
+.header .flex .logo {
+   position: relative; /* Keep it within normal flow */
+   top: 0; /* Reset top value */
+   left: auto; /* Remove unnecessary left positioning */
+   max-width: 120px; /* Ensure it resizes properly */
 }
+
 
 .header .flex .search-form{
-   width: 800px;
-   border-radius: .95rem;
+   width: 100%;
+   border-radius: 100px;
    background-color: var(--light-bg);
-   padding:1.5rem 2rem;
+   padding:.5rem 1%;
    display: flex;
    gap:2rem;
 
 }
+.header .flex .search-form:focus-within {
+   width: 600px; /* Expands smoothly when clicked */
+}
 
 .header .flex .search-form input{
    width: 100%;
-   font-size: 1.8rem;
+   font-size: 120%;
    color:var(--black);
    background:none;
 }
@@ -182,21 +181,22 @@ section{
 }
 
 .header .flex .icons div{
-   font-size: 2rem;
+   font-size: 1.5rem;
    color:var(--black);
    background-color: var(--light-bg);
-   border-radius: .5rem;
-   height: 4.5rem;
-   width: 4.5rem;
-   line-height: 4.5rem;
+   border-radius: 50rem;
+   height: 3rem;
+   width: 3rem;
+   line-height: 3rem;
    cursor: pointer;
    text-align: center;
-   margin-left: .7rem;
+   margin-left: .2rem;
 }
 
 .header .flex .icons div:hover{
    background-color: var(--black);
    color:var(--white);
+
 }
 
 .header .flex .profile{
@@ -211,18 +211,17 @@ section{
    transform: scale(0);
    transition: .2s linear;
    width: 30rem;
+
 }
 
 .header .flex .profile.active{
    transform: scale(1);
 }
 
-.header .flex .profile .image{
-   height: 10rem;
-   width: 10rem;
-   border-radius: 50%;
-   object-fit: contain;
-   margin-bottom: 1rem;
+.header .flex .logo img {
+   width: 60px; /* Make it smaller */
+   height: 50px;
+   border-radius: 50%; /* Make it round */
 }
 
 .header .flex .profile .name{
@@ -500,8 +499,6 @@ color:var(--light-color);
    color:var(--orange);
 }
 
-
-
 .contact .row{
    display: flex;
    align-items: center;
@@ -627,27 +624,24 @@ color:var(--light-color);
    margin: 1rem 0;
 }
 
-
-
-
-
-
 /* General Footer Styles */
 .footer {
    background: #fef9f3; /* Paper-like background */
-   color: #333;
+   color: #0e0202;
    text-align: center;
    padding: 20px 10px;
    font-size: 14px;
    line-height: 1.6;
-   box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+   box-shadow: 0 -2px 5px rgba(92, 71, 71, 0.1);
 }
 
 .footer-bar {
-   background: #6a1b9a; /* Purple accent */
+   background: hsl(277, 50%, 55%); /* Purple accent */
+   border-radius: 100rex;
    color: white;
-   padding: 10px;
+   padding: 15px;
    font-weight: bold;
+
 }
 
 .footer-bar a {
@@ -666,6 +660,7 @@ color:var(--light-color);
 .footer a {
    color: #6a1b9a; /* Match the purple accent */
    text-decoration: none;
+   border: none;
 }
 
 .footer a:hover {
@@ -759,21 +754,6 @@ color:var(--light-color);
       height: 25rem;
    }
 
-}
-/* Style for the logo container */
-.logo-container {
-   display: flex;
-   align-items: flex-start;  /* Vertically center-aligns items in the container */
-}
-
-/* Style for the logo image */
-.logo {
-   width: 150px;         /* Increase the size of the logo */
-   height: auto;        /* Maintains aspect ratio */
-   margin-right: 15px;  /* Adds space between the logo and the title */
-   position: static;  /* Positions the logo in the corner */
-   top: 3cm;           /* Adjusts distance from the top of the page */
-   left:11 px;          /* Adjusts distance from the left of the page */
 }
 .subject-selection {
    margin: 20px;
@@ -889,15 +869,6 @@ main {
    background-color: #375ab5;
 }
 
-/* Footer Section */
-footer {
-   margin-top: 40px;
-   padding: 10px;
-   background-color: #b632eb;
-   color: #ffffff;
-   width: 100%;
-   text-align: center;
-}
 /* General Styles */
 .subject-selection {
     max-width: 1200px;
@@ -933,7 +904,7 @@ footer {
 .subject-item {
    display: block;
    padding: 15px;
-   background-color: #9d2bb9;
+   background-color: #1c0d20;
    color: #fff;
    text-align: center;
    border-radius: 8px;
@@ -993,7 +964,7 @@ footer {
 
 button {
    background-color: #6a4f99;
-   color: #fff;
+   color: #000000;
    border: none;
    padding: 8px 16px;
    border-radius: 5px;
@@ -1005,8 +976,8 @@ button:hover {
 }
 body.dark .subject-selection,
 body.dark .subject-grid {
-    background-color: #333; /* Dark background for dark mode */
-    color: #fff; /* Light text color for dark mode */
+    background-color: #000000; /* Dark background for dark mode */
+    color: #130101; /* Light text color for dark mode */
 }
 .papers-section {
    max-width: 1200px;
@@ -1036,7 +1007,7 @@ body.dark .subject-grid {
    background-color: var(--main-color);
    color: #fff;
    border: none;
-   border-radius: 5px;
+   border-radius: 100px;
    cursor: pointer;
 }
 
@@ -1044,19 +1015,13 @@ body.dark .subject-grid {
    background-color: var(--black);
    color: var(--white);
 }
-/* General styles */
-body {
-   font-family: Arial, sans-serif;
-   margin: 0;
-   padding: 0;
-   background-color: #f4f4f9;
-}
 
 header {
-   background-color: #6a4e93; /* Grayish purple */
-   color: white;
+   background-color: #64498b; /* Grayish purple */
+   color: rgb(255, 255, 255);
    text-align: center;
-   padding: 20px;
+   padding: .5px;
+   border-radius: 90px;
 }
 
 h1 {
@@ -1077,29 +1042,6 @@ h1 {
    color: #6a4e93;
 }
 
-.payment-methods {
-   display: flex;
-   justify-content: space-around;
-   margin-top: 20px;
-}
-
-.payment-method {
-   background-color: #fff;
-   padding: 20px;
-   border-radius: 8px;
-   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-   width: 45%;
-   text-align: left;
-}
-
-.payment-method h3 {
-   color: #6a4e93;
-}
-
-.payment-method p {
-   font-size: 1.1em;
-   margin-bottom: 10px;
-}
 
 .thank-you-message {
    margin-top: 30px;
@@ -1111,7 +1053,6 @@ footer {
    color: white;
    text-align: center;
    padding: 10px;
-   position: fixed;
    width: 100%;
    bottom: 0;
 }
@@ -1124,8 +1065,12 @@ body {
 }
 
 /* Additional styling for content contrast */
-header, .side-bar, footer {
-    background-color: #6a0dad; /* Deep purple for header, sidebar, and footer */
+footer {
+    background-color: #ada8c2; /* Deep purple for header, sidebar, and footer */
+    border-bottom-left-radius: 90px;
+    border-top-left-radius: 90px;
+    border-top-right-radius:90px ;
+    border-bottom-right-radius: 90px;
     color: #fff; /* Ensure text is visible */
 }
 
@@ -1139,8 +1084,8 @@ body {
    line-height: 1.6;
    margin: 0;
    padding: 0;
-   background-color: #f9f9f9;
-   color: #333;
+   background-color: #d6d3d8;
+   color: #3a0909;
  }
  
  /* Content Container */
@@ -1161,15 +1106,10 @@ body {
  }
  
  /* Heading Styles */
- h1 {
-   font-size: 2rem;
-   color: #1d27b3; /* Hot pink */
-   margin-bottom: 10px;
- }
- 
+
  h2 {
    font-size: 1.5rem;
-   color: #7f1ca7;
+   color: #856c8f;
    margin-bottom: 15px;
  }
  
@@ -1183,7 +1123,7 @@ body {
  /* Paragraph Styling */
  p {
    font-size: 1.1rem;
-   color: #555;
+   color: #000000;
    margin-bottom: 15px;
  }
  
@@ -1200,10 +1140,6 @@ body {
      padding: 15px;
    }
  
-   h1 {
-     font-size: 5.3px;
-   }
- 
    h2 {
      font-size: 2.7rem;
    }
@@ -1212,4 +1148,122 @@ body {
      font-size: 2.8rem;
    }
  }
- 
+ .paper-options button::before {
+   content: "";
+   display: inline-block;
+   width: 16px;
+   height: 16px;
+   background-image: url('https://upload.wikimedia.org/wikipedia/commons/8/87/PDF_file_icon.svg'); /* Red PDF icon */
+   background-size: contain;
+   background-repeat: no-repeat;
+   margin-right: 6px;
+   vertical-align: middle;
+ }
+ .pdf-overlay {
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100vw;
+   height: 100vh;
+   background-color: white;
+   z-index: 9999;
+   display: none;
+   flex-direction: column;
+}
+
+.pdf-header {
+   background-color: #8e44ad;
+   color: white;
+   padding: 10px 20px;
+   display: flex;
+   justify-content: flex-end;
+   align-items: center;
+}
+
+.pdf-overlay {
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100vw;
+   height: 100vh;
+   background-color: rgba(0, 0, 0, 0.85); /* dark background */
+   z-index: 9999;
+   display: none;
+   flex-direction: column;
+   animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+   from { opacity: 0; }
+   to { opacity: 1; }
+}
+
+.pdf-header {
+   background-color: #ffffff;
+   padding: 12px 20px;
+   display: flex;
+   justify-content: flex-end;
+   align-items: center;
+   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+   z-index: 1;
+}
+
+.pdf-overlay {
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100vw;
+   height: 100vh;
+   background-color: rgba(0, 0, 0, 0.8); /* subtle dark backdrop */
+   z-index: 9999;
+   display: none;
+   flex-direction: column;
+   animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+   from { opacity: 0; }
+   to { opacity: 1; }
+}
+
+.pdf-header {
+   background-color: #6a0dad; /* deep royal purple */
+   padding: 10px;
+   display: flex;
+   justify-content: flex-end;
+   align-items: center;
+   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+   z-index: 1;
+   position: relative;
+}
+
+.glass-close-btn {
+   background-color: rgba(255, 255, 255, 0.2); /* glass look */
+   border: none;
+   color: white;
+   font-size: 18px;
+   width: 32px;
+   height: 32px;
+   border-radius: 50%;
+   cursor: pointer;
+   transition: background-color 0.3s ease, transform 0.2s;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   backdrop-filter: blur(4px);
+   box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.glass-close-btn:hover {
+   background-color: rgba(255, 255, 255, 0.3);
+   transform: scale(1.05);
+}
+
+.pdf-overlay iframe {
+   flex: 1;
+   width: 100%;
+   border: none;
+   background-color: white;
+}
+
+

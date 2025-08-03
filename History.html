@@ -23,7 +23,7 @@
    
         <section class="flex">
      
-           <a href="home.html" class="logo"> <img src="images/logo.png" alt="Uncle Zimsec Logo" class="logo"> </a>
+           <a href="index.html" class="logo"> <img src="images/logo.png" alt="Uncle Zimsec Logo" class="logo"> </a>
           
      
            <form action="search.html" method="post" class="search-form">
@@ -38,8 +38,7 @@
               <div id="toggle-btn" class="fas fa-sun"></div>
               
            </div>
-           <a href="donate.html" class="inline-btn">donate!!</a>
-              
+            
            <div class="profile">
               <img src="images/pic-1.jpg" class="image" alt="">
               <h3 class="name">uncle zimsec</h3>
@@ -72,7 +71,7 @@
      </div>
 
     <header>
-        <h1>A level Historyr Past Papers</h1>
+        <h1>A level History Past Papers</h1>
     </header>
 
     <main>
@@ -166,8 +165,21 @@
     <script>
         // JavaScript functions to view and download papers
         function viewPaper(filePath) {
-            window.open(filePath, '_blank');
-        }
+    const viewer = document.getElementById('pdfViewer');
+    const overlay = document.getElementById('pdfViewerOverlay');
+
+    viewer.src = filePath;
+    overlay.style.display = 'flex';
+}
+
+function closePDFViewer() {
+    const overlay = document.getElementById('pdfViewerOverlay');
+    const viewer = document.getElementById('pdfViewer');
+
+    overlay.style.display = 'none';
+    viewer.src = ""; // Optional: clear the iframe
+}
+
 
         function downloadPaper(filePath) {
             const link = document.createElement('a');
@@ -176,5 +188,14 @@
             link.click();
         }
     </script>
+  <!-- Fullscreen PDF Viewer Overlay -->
+<div id="pdfViewerOverlay" class="pdf-overlay">
+    <div class="pdf-header">
+        <button onclick="closePDFViewer()" class="close-btn">✖ Close</button>
+    </div>
+    <iframe id="pdfViewer" src="" frameborder="0"></iframe>
+</div>
+
+
 </body>
 </html>

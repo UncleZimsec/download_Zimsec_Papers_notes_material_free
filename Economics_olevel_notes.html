@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CTBQ58KNCF"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-CTBQ58KNCF');
+</script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O level Economics notes - Uncle ZIMSEC</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+
+</head>
+<body>
+    <header class="header">
+   
+        <section class="flex">
+     
+           <a href="index.html" class="logo"> <img src="images/logo.png" alt="Uncle Zimsec Logo" class="logo"> </a>
+          
+     
+           <form action="search.html" method="post" class="search-form">
+              <input type="text" name="search_box" required placeholder="e.g., 'history a level"   maxlength="100">
+              <button type="submit" class="fas fa-search" aria-label="search"></button>
+           </form>
+     
+           <div class="icons">
+              <div id="menu-btn" class="fas fa-bars"></div>
+              <div id="search-btn" class="fas fa-search"></div>
+              <div id="user-btn" class="fas fa-user"></div>
+              <div id="toggle-btn" class="fas fa-sun"></div>
+              
+           </div>
+            
+           <div class="profile">
+              <img src="images/pic-1.jpg" class="image" alt="">
+              <h3 class="name">uncle zimsec</h3>
+              <p class="role">student</p>
+              </div>
+           </div>
+     
+        </section>
+     
+     </header>   
+     
+     <div class="side-bar">
+     
+        <div id="close-btn">
+           <i class="fas fa-times"></i>
+        </div>
+     
+        <div class="profile">
+           <img src="images/pic-1.jpg" class="image" alt="">
+        
+           <p class="role">student</p>
+         </div>
+     
+        <nav class="navbar">
+           <a href="index.html"><i class="fas fa-home"></i><span>home</span></a>
+           <a href="about.html"><i class="fas fa-question"></i><span>about</span></a>
+           <a href="contact.html"><i class="fas fa-headset"></i><span>contact us</span></a>
+        </nav>
+     
+     </div>
+
+    <header>
+        <h1>O level Economics notes </h1>
+    </header>
+
+    <main>
+        <section class="subject-selection">
+        <section class="papers-section">
+                <div class="session">
+                    <h4>Economics</h4>
+                    <div class="paper-options">     
+                        <button onclick="viewPaper('papers/economics-revision-notes-for-olevel.pdf')">economics-revision-notes-for-olevel</button>
+                    </div>
+                    <div class="paper-options">     
+                        <button onclick="viewPaper('papers/Basic-Economics-Module-2020-2021.pdf')">Basic-Economics-Module-2020-2021</button>
+                    </div>
+                    <div class="paper-options">     
+                        <button onclick="viewPaper('papers/O LEVEL Economics textbookk.pdf')">O LEVEL Economics textbookk</button>
+                    </div>
+                    <div class="paper-options">     
+                        <button onclick="viewPaper('papers/ECONOMICS-STUDY-PACK-1.pdf')">ECONOMICS-STUDY-PACK-1</button>
+                    </div>
+                    <div class="paper-options">     
+                        <button onclick="viewPaper('papers/Economics_O_level_Module.pdf')">Economics_O_level_Module</button>
+                    </div>
+                    <div class="paper-options">     
+                        <button onclick="viewPaper('papers/O level Economics Study pack.pdf')">O level Economics Study pack</button>
+                    </div>
+        </section>
+
+       </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 UNCLE ZIMSEC. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript File -->
+    <script src="js/script.js"></script>
+    <script>
+        // JavaScript functions to view and download papers
+        function viewPaper(filePath) {
+    const viewer = document.getElementById('pdfViewer');
+    const overlay = document.getElementById('pdfViewerOverlay');
+
+    viewer.src = filePath;
+    overlay.style.display = 'flex';
+}
+
+function closePDFViewer() {
+    const overlay = document.getElementById('pdfViewerOverlay');
+    const viewer = document.getElementById('pdfViewer');
+
+    overlay.style.display = 'none';
+    viewer.src = ""; // Optional: clear the iframe
+}
+
+
+        function downloadPaper(filePath) {
+            const link = document.createElement('a');
+            link.href = filePath;
+            link.download = filePath.split('/').pop();  // Download the file by its name
+            link.click();
+        }
+    </script>
+  <!-- Fullscreen PDF Viewer Overlay -->
+<div id="pdfViewerOverlay" class="pdf-overlay">
+    <div class="pdf-header">
+        <button onclick="closePDFViewer()" class="close-btn">✖ Close</button>
+    </div>
+    <iframe id="pdfViewer" src="" frameborder="0" title="PDF Viewer"></iframe>
+</div>
+</body>
+</html>

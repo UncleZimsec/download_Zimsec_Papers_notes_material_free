@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CTBQ58KNCF"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-CTBQ58KNCF');
+</script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O-Level history Past Papers - Uncle ZIMSEC</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+
+</head>
+<body>
+    <header class="header">
+   
+        <section class="flex">
+     
+           <a href="index.html" class="logo"> <img src="images/logo.png" alt="Uncle Zimsec Logo" class="logo"> </a>
+          
+     
+           <form action="search.html" method="post" class="search-form">
+              <input type="text" name="search_box" required placeholder="e.g., 'history a level"   maxlength="100">
+              <button type="submit" class="fas fa-search" aria-label="search"></button>
+           </form>
+     
+           <div class="icons">
+              <div id="menu-btn" class="fas fa-bars"></div>
+              <div id="search-btn" class="fas fa-search"></div>
+              <div id="user-btn" class="fas fa-user"></div>
+              <div id="toggle-btn" class="fas fa-sun"></div>
+              
+           </div>
+            
+           <div class="profile">
+              <img src="images/pic-1.jpg" class="image" alt="">
+              <h3 class="name">uncle zimsec</h3>
+              <p class="role">student</p>
+              </div>
+           </div>
+     
+        </section>
+     
+     </header>   
+     
+     <div class="side-bar">
+     
+        <div id="close-btn">
+           <i class="fas fa-times"></i>
+        </div>
+     
+        <div class="profile">
+           <img src="images/pic-1.jpg" class="image" alt="">
+        
+           <p class="role">student</p>
+         </div>
+     
+        <nav class="navbar">
+           <a href="index.html"><i class="fas fa-home"></i><span>home</span></a>
+           <a href="about.html"><i class="fas fa-question"></i><span>about</span></a>
+           <a href="contact.html"><i class="fas fa-headset"></i><span>contact us</span></a>
+        </nav>
+     
+     </div>
+
+    <header>
+        <h1>O level history Notes</h1>
+    </header>
+
+    <main>
+        <section class="subject-selection">
+        <section class="papers-section">
+                <div class="session">
+                    <h4>history</h4>
+                    <div class="paper-options">     
+                        <button onclick="viewPaper('papers/1.3 RESULTS OF WW1.pdf')">1.3 RESULTS OF WW1</button>
+                    </div>
+                    <div class="paper-options">     
+                        <button onclick="viewPaper('papers/European_history-1.pdf')">European_history-1</button>
+                    </div>
+                    <div class="paper-options">     
+                        <button onclick="viewPaper('papers/History_of_Southern_Africa.pdf')">History_of_Southern_Africa</button>
+                    </div>
+                    <div class="paper-options">     
+                        <button onclick="viewPaper('papers/_O_LEVEL_EUROPEAN_HISTORY_NOTES.pdf')">_O_LEVEL_EUROPEAN_HISTORY_NOTES</button>
+                    </div>
+                    <div class="paper-options">     
+                        <button onclick="viewPaper('papers/African-Histrory.pdf')">African-Histrory</button>
+                    </div>
+                    <div class="paper-options">     
+                        <button onclick="viewPaper('papers/History-of-Zimbabwe-From-the-Stone-Age-to-Colonialism-signed-1.pdf')">History-of-Zimbabwe-From-the-Stone-Age-to-Colonialism-signed-1</button>
+                    </div>
+                    <div class="paper-options">     
+                        <button onclick="viewPaper('papers/o_LEVEL_EUROPEAN_HISTORY_NOTES-1.pdf')">o_LEVEL_EUROPEAN_HISTORY_NOTES-1</button>
+                    </div>
+                </div>
+                
+        </section>
+
+       </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 UNCLE ZIMSEC. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript File -->
+    <script src="js/script.js"></script>
+    <script>
+        // JavaScript functions to view and download papers
+        function viewPaper(filePath) {
+    const viewer = document.getElementById('pdfViewer');
+    const overlay = document.getElementById('pdfViewerOverlay');
+
+    viewer.src = filePath;
+    overlay.style.display = 'flex';
+}
+
+function closePDFViewer() {
+    const overlay = document.getElementById('pdfViewerOverlay');
+    const viewer = document.getElementById('pdfViewer');
+
+    overlay.style.display = 'none';
+    viewer.src = ""; // Optional: clear the iframe
+}
+
+
+        function downloadPaper(filePath) {
+            const link = document.createElement('a');
+            link.href = filePath;
+            link.download = filePath.split('/').pop();  // Download the file by its name
+            link.click();
+        }
+    </script>
+  <!-- Fullscreen PDF Viewer Overlay -->
+<div id="pdfViewerOverlay" class="pdf-overlay">
+    <div class="pdf-header">
+        <button onclick="closePDFViewer()" class="close-btn">✖ Close</button>
+    </div>
+    <iframe id="pdfViewer" src="" frameborder="0" title="PDF Viewer"></iframe>
+</div>
+</body>
+</html>
